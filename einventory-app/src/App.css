@@ -1,42 +1,169 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* --- Reset e Layout Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f3f4f6;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* --- Sidebar --- */
+.sidebar {
+  width: 260px;
+  background-color: #111827; /* Dark Slate */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-.card {
-  padding: 2em;
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.sidebar a:hover {
+  background-color: #1f2937;
+  color: white;
+}
+
+.sidebar a.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* --- Área de Conteúdo --- */
+.content {
+  flex: 1; /* Faz o conteúdo ocupar totalmente o espaço restante à direita */
+  padding: 2.5rem;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+/* Padronização de Títulos */
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #111827;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: #374151;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Seções e Containers --- */
+section {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* --- Formulários --- */
+form {
+  display: grid;
+  /* Cria uma grade responsiva que se ajusta ao espaço total */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+/* Ajuste específico para tornar o formulário de categoria proporcional */
+form textarea {
+  grid-column: span 1; /* Você pode mudar para 'span 2' se quiser que a descrição seja larga */
+  min-height: 42px;
+  resize: vertical;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap; /* Impede o texto do botão de quebrar */
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* --- Tabelas Full Width --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th {
+  background-color: #f8fafc;
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
 }
