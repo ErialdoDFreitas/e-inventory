@@ -21,7 +21,7 @@ from api.services.report_service import ReportService
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.select_related('category', 'created_by').filter(is_active=True)
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['category', 'is_active']
     search_fields = ['name', 'sku', 'description']

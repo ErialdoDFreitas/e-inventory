@@ -3,6 +3,7 @@ import type {Category, Product} from "./models";
 
 export type ProductFormData = {
     name: string;
+    description: string;
     sku: string;
     price: string;
     quantity: string;
