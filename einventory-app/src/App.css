@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -53,13 +54,19 @@ body {
 
 /* --- Área de Conteúdo --- */
 .content {
-  flex: 1; /* Faz o conteúdo ocupar totalmente o espaço restante à direita */
+  flex: 1;
   padding: 2.5rem;
   background-color: #f9fafb;
   overflow-y: auto;
 }
 
-/* Padronização de Títulos */
+.content > div {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+
+/* --- Padronização de Títulos --- */
 h1 {
   display: flex;
   align-items: center;
@@ -67,6 +74,14 @@ h1 {
   color: #111827;
   font-size: 2rem;
   margin-bottom: 2rem;
+}
+
+h2 {
+  color: #374151;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 h3 {
@@ -77,43 +92,54 @@ h3 {
   gap: 8px;
 }
 
+
 /* --- Seções e Containers --- */
 section {
   width: 100%;
   background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: none;
 }
+
 
 /* --- Formulários --- */
 form {
   display: grid;
-  /* Cria uma grade responsiva que se ajusta ao espaço total */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  align-items: end;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px
 }
 
-/* Ajuste específico para tornar o formulário de categoria proporcional */
+
 form textarea {
-  grid-column: span 1; /* Você pode mudar para 'span 2' se quiser que a descrição seja larga */
+  grid-column: span 1;
   min-height: 42px;
   resize: vertical;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 0.95rem;
   color: #1f2937;
+  background-color: rgba(37, 99, 235, 0.1);
   transition: border-color 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
+input, select {
+  border-left: 4px solid #2563eb !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -128,7 +154,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
-  white-space: nowrap; /* Impede o texto do botão de quebrar */
+  white-space: nowrap;
 }
 
 button:hover {
@@ -140,30 +166,126 @@ button:disabled {
   cursor: not-allowed;
 }
 
+
 /* --- Tabelas Full Width --- */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  text-align: left;
+  font-family: inherit;
+  /* Remove a borda preta que o atributo border={1} do HTML coloca */
+  /*border: none !important;*/
+  /*border: 1px solid #d1d5db;*/
 }
 
+/* Garante que o cabeçalho seja cinza claro com letras legíveis */
 th {
   background-color: #f8fafc;
-  color: #64748b;
+  color: #374151;
   text-transform: uppercase;
   font-size: 0.75rem;
+  font-weight: 700; /* Deixa o cabeçalho mais robusto */
   letter-spacing: 0.05em;
-  padding: 12px;
-  text-align: left;
+  padding: 16px 12px; /* Aumentei um pouco o respiro */
   border-bottom: 2px solid #e2e8f0;
+  border-left: 1px solid #e0e2e6;  /* Divisão vertical entre colunas *!*/
+  border-right: 1px solid #e0e2e6;
+  border-radius: 5px;
 }
 
 td {
   padding: 12px;
   border-bottom: 1px solid #f1f5f9;
   color: #334155;
+  background-color: transparent; /* Evita que herde cores estranhas */
+  border-right: 1px solid #e0e2e6;  /* Divisão vertical entre colunas *!*/
 }
 
-tr:hover {
+/* Efeito de linha ao passar o mouse */
+tr:hover td {
   background-color: #f1f5f9;
+}
+
+/*!* --- Tabelas Full Width --- *!*/
+/*table {*/
+/*  width: 100%;*/
+/*  border-collapse: collapse;*/
+/*  margin-top: 1rem;*/
+/*  text-align: left;*/
+/*  border: 1px solid #d1d5db; !* Borda externa mais escura *!*/
+/*  background-color: white;*/
+/*}*/
+
+/*th {*/
+/*  background-color: #f8fafc;*/
+/*  color: #374151; !* Texto do cabeçalho um pouco mais escuro *!*/
+/*  text-transform: uppercase;*/
+/*  font-size: 0.75rem;*/
+/*  font-weight: 700;*/
+/*  letter-spacing: 0.05em;*/
+/*  padding: 14px 12px;*/
+/*  border-bottom: 2px solid #9ca3af; !* Linha abaixo do cabeçalho bem visível *!*/
+/*  border-right: 1px solid #d1d5db;  !* Divisão vertical entre colunas *!*/
+/*}*/
+
+/*td {*/
+/*  padding: 12px;*/
+/*  color: #334155;*/
+/*  border-bottom: 1px solid #d1d5db; !* Linha horizontal mais escura *!*/
+/*  border-right: 1px solid #d1d5db;  !* Linha vertical entre colunas mais escura *!*/
+/*}*/
+
+/*!* Remove a linha vertical da última coluna para não ficar sobrando *!*/
+/*th:last-child, td:last-child {*/
+/*  border-right: none;*/
+/*}*/
+
+/*tr:hover td {*/
+/*  background-color: #f1f5f9;*/
+/*}*/
+
+
+/* Mutation Errors*/
+.create-mut-error {
+  color: red;
+  margin-top: 10px
+}
+
+/* --- Estilo Específico para o formulário de Categorias --- */
+.category-form {
+  display: grid;
+  /* Nome ocupa 1 parte, Descrição ocupa 2 partes */
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: end; /* Alinha o input e o botão por baixo */
+}
+
+/* Estilização exclusiva do Input de Nome */
+/*.input-name-product, .input-name-category {*/
+/*  border-left: 4px solid #2563eb !important; !* Destaque azul na lateral *!*/
+/*  font-weight: 600;*/
+/*}*/
+
+.category-form textarea {
+  /* Faz o textarea pular para a linha 2 e ocupar as DUAS colunas */
+  grid-column: span 2;
+  min-height: 80px; /* Um pouco mais alto para justificar o espaço */
+  resize: vertical;
+  /* Importante: Como você colocou borda azul em inputs e selects,
+     talvez queira tirar do textarea ou manter para padronizar */
+  border-left: 1px solid #d1d5db;
+  /*grid-column: span 2; !* Se quiser que ele fique em uma 3ª coluna, mude o grid-template *!*/
+}
+
+/* Faz o botão de categoria ocupar a linha inteira ou se ajustar */
+.category-form button {
+  /*grid-column: span 2; !* Se quiser que ele fique em uma 3ª coluna, mude o grid-template *!*/
+}
+
+/* Sugestão para harmonia: se a tela for pequena, vira uma coluna só */
+@media (max-width: 768px) {
+  .category-form {
+    grid-template-columns: 1fr;
+  }
 }

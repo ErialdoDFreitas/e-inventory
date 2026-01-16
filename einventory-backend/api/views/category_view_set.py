@@ -10,6 +10,7 @@ from api.services.category_service import CategoryService
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.filter(is_active=True)
     serializer_class = CategorySerializer
+    # permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         try:
