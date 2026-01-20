@@ -207,45 +207,6 @@ tr:hover td {
   background-color: #f1f5f9;
 }
 
-/*!* --- Tabelas Full Width --- *!*/
-/*table {*/
-/*  width: 100%;*/
-/*  border-collapse: collapse;*/
-/*  margin-top: 1rem;*/
-/*  text-align: left;*/
-/*  border: 1px solid #d1d5db; !* Borda externa mais escura *!*/
-/*  background-color: white;*/
-/*}*/
-
-/*th {*/
-/*  background-color: #f8fafc;*/
-/*  color: #374151; !* Texto do cabeçalho um pouco mais escuro *!*/
-/*  text-transform: uppercase;*/
-/*  font-size: 0.75rem;*/
-/*  font-weight: 700;*/
-/*  letter-spacing: 0.05em;*/
-/*  padding: 14px 12px;*/
-/*  border-bottom: 2px solid #9ca3af; !* Linha abaixo do cabeçalho bem visível *!*/
-/*  border-right: 1px solid #d1d5db;  !* Divisão vertical entre colunas *!*/
-/*}*/
-
-/*td {*/
-/*  padding: 12px;*/
-/*  color: #334155;*/
-/*  border-bottom: 1px solid #d1d5db; !* Linha horizontal mais escura *!*/
-/*  border-right: 1px solid #d1d5db;  !* Linha vertical entre colunas mais escura *!*/
-/*}*/
-
-/*!* Remove a linha vertical da última coluna para não ficar sobrando *!*/
-/*th:last-child, td:last-child {*/
-/*  border-right: none;*/
-/*}*/
-
-/*tr:hover td {*/
-/*  background-color: #f1f5f9;*/
-/*}*/
-
-
 /* Mutation Errors*/
 .create-mut-error {
   color: red;
@@ -261,21 +222,11 @@ tr:hover td {
   align-items: end; /* Alinha o input e o botão por baixo */
 }
 
-/* Estilização exclusiva do Input de Nome */
-/*.input-name-product, .input-name-category {*/
-/*  border-left: 4px solid #2563eb !important; !* Destaque azul na lateral *!*/
-/*  font-weight: 600;*/
-/*}*/
-
 .category-form textarea {
-  /* Faz o textarea pular para a linha 2 e ocupar as DUAS colunas */
   grid-column: span 2;
-  min-height: 80px; /* Um pouco mais alto para justificar o espaço */
+  min-height: 80px;
   resize: vertical;
-  /* Importante: Como você colocou borda azul em inputs e selects,
-     talvez queira tirar do textarea ou manter para padronizar */
   border-left: 1px solid #d1d5db;
-  /*grid-column: span 2; !* Se quiser que ele fique em uma 3ª coluna, mude o grid-template *!*/
 }
 
 /* Faz o botão de categoria ocupar a linha inteira ou se ajustar */
