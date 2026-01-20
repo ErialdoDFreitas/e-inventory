@@ -1,0 +1,116 @@
+/* --- Dashboard Layout --- */
+.dashboard-grid {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+/* Modifique a sua classe existente */
+/*.dashboard-grid {*/
+/*  display: grid;*/
+/*  !* Criamos 3 colunas fixas para controlar melhor o espaço *!*/
+/*  grid-template-columns: 1.5fr 1fr 1fr;*/
+/*  gap: 20px;*/
+/*  align-items: start;*/
+/*}*/
+
+
+/* Reutilizando a lógica de section, mas adaptada para cards */
+/*.stat-card {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 20px;*/
+/*    padding: 25px;*/
+/*    background: white;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 12px;*/
+/*    transition: transform 0.2s;*/
+/*}*/
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    transition: transform 0.2s;
+
+    height: 100%; /* 🔥 importante */
+}
+
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Diferenciando cores com o  estilo de border-left já usado antes */
+.stat-card.blue {
+    border-left: 6px solid #2563eb;
+}
+
+.stat-card.green {
+    border-left: 6px solid #10b981;
+}
+
+.stat-card.orange {
+    border-left: 6px solid #f59e0b;
+}
+
+.stat-icon {
+    background-color: rgba(37, 99, 235, 0.1);
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-info h3 {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-transform: uppercase;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+/*.desc-dashboard {*/
+/*  margin-top: 20px;*/
+/*}*/
+
+.desc-dashboard p {
+    /*margin-bottom: 5px;*/
+    /*font-size: 0.9rem;*/
+    color: #6b7280;
+    /*text-transform: uppercase;*/
+}
+
+
+/* Forçamos a mensagem a ocupar o espaço da esquerda */
+.desc-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 4px solid black !important;
+
+    /*grid-column: 1; !* Coluna 1 *!*/
+    /*!* Removemos o margin-top para ela alinhar perfeitamente com os cards *!*/
+    /*margin-top: 0;*/
+    /*!*height: 100%; !* Faz ela acompanhar a altura total dos cards *!*!*/
+}
+
+/* Ajuste para responsividade: em telas pequenas vira tudo uma coluna */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

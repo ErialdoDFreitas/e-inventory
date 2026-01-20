@@ -1,42 +1,242 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* --- Reset e Layout Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f3f4f6;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.app-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 260px;
+  background-color: #111827; /* Dark Slate */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: #1f2937;
+  color: white;
+}
+
+.sidebar a.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* --- Área de Conteúdo --- */
+.content {
+  flex: 1;
+  padding: 2.5rem;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+.content > div {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+
+/* --- Padronização de Títulos --- */
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #111827;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #374151;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h3 {
+  color: #374151;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* --- Seções e Containers --- */
+section {
+  width: 100%;
+  background: white;
+
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: none;
+}
+
+
+/* --- Formulários --- */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px
+}
+
+
+form textarea {
+  grid-column: span 1;
+  min-height: 42px;
+  resize: vertical;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  background-color: rgba(37, 99, 235, 0.1);
+  transition: border-color 0.2s;
+}
+
+input, select {
+  border-left: 4px solid #2563eb !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+
+/* --- Tabelas Full Width --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: left;
+  font-family: inherit;
+  /* Remove a borda preta que o atributo border={1} do HTML coloca */
+  /*border: none !important;*/
+  /*border: 1px solid #d1d5db;*/
+}
+
+/* Garante que o cabeçalho seja cinza claro com letras legíveis */
+th {
+  background-color: #f8fafc;
+  color: #374151;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700; /* Deixa o cabeçalho mais robusto */
+  letter-spacing: 0.05em;
+  padding: 16px 12px; /* Aumentei um pouco o respiro */
+  border-bottom: 2px solid #e2e8f0;
+  border-left: 1px solid #e0e2e6;  /* Divisão vertical entre colunas *!*/
+  border-right: 1px solid #e0e2e6;
+  border-radius: 5px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  background-color: transparent; /* Evita que herde cores estranhas */
+  border-right: 1px solid #e0e2e6;  /* Divisão vertical entre colunas *!*/
+}
+
+/* Efeito de linha ao passar o mouse */
+tr:hover td {
+  background-color: #f1f5f9;
+}
+
+/* Mutation Errors*/
+.create-mut-error {
+  color: red;
+  margin-top: 10px
+}
+
+/* --- Estilo Específico para o formulário de Categorias --- */
+.category-form {
+  display: grid;
+  /* Nome ocupa 1 parte, Descrição ocupa 2 partes */
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: end; /* Alinha o input e o botão por baixo */
+}
+
+.category-form textarea {
+  grid-column: span 2;
+  min-height: 80px;
+  resize: vertical;
+  border-left: 1px solid #d1d5db;
+}
+
+/* Faz o botão de categoria ocupar a linha inteira ou se ajustar */
+.category-form button {
+  /*grid-column: span 2; !* Se quiser que ele fique em uma 3ª coluna, mude o grid-template *!*/
+}
+
+/* Sugestão para harmonia: se a tela for pequena, vira uma coluna só */
+@media (max-width: 768px) {
+  .category-form {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

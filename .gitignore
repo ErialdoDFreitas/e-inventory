@@ -1,0 +1,100 @@
+# =====================================
+# Python (Backend - Django)
+# =====================================
+
+# Ambientes virtuais
+einventory-backend/.venv
+einventory-backend/*env/
+
+# Python cache
+einventory-backend/__pycache__/
+einventory-backend/**/__pycache__/
+einventory-backend/**/*.pyc
+einventory-backend/**/*.pyo
+einventory-backend/**/*.pyd
+
+# Django
+einventory-backend/db.sqlite3
+einventory-backend/db.sqlite3-journal
+einventory-backend/*.log
+einventory-backend/media/
+einventory-backend/staticfiles/
+einventory-backend/static/
+
+# Variáveis de ambiente
+einventory-backend/.env
+einventory-backend/.env.local
+
+
+# =====================================
+# Node.js (Frontend - React)
+# =====================================
+
+# Dependencies
+einventory-app/node_modules/
+einventory-app/.pnp
+einventory-app/.pnp.js
+
+# Production build
+einventory-app/build/
+einventory-app/dist/
+
+# Testing
+einventory-app/coverage/
+
+# Variáveis de ambiente
+einventory-app/.env
+einventory-app/.env.local
+einventory-app/.env.development.local
+einventory-app/.env.test.local
+einventory-app/.env.production.local
+
+# Logs
+einventory-app/npm-debug.log*
+einventory-app/yarn-debug.log*
+einventory-app/yarn-error.log*
+
+# Vite
+einventory-app/.vite/
+
+# =====================================
+# IDEs e Editores
+# =====================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# =====================================
+# Sistema Operacional
+# =====================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =====================================
+# Geral
+# =====================================
+
+# Backups
+*.bak
+*.swp
+*.swo
